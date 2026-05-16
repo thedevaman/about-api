@@ -3,8 +3,42 @@ const app = express()
 
 app.listen(8080,()=>console.log("server is running"))
 
-app.get("/users",(req,res)=>{
+app.get("/",(req,res)=>{
     res.status(200).json({messgae:"success"})
+})
+
+app.get("/current-date",(req,res)=>{
+
+    const date = new Date()
+    const currentDate = date.toDateString()
+    const response = {
+        currentDate:currentDate                                    //if property and value is same then 'currentDate' could pass dono defined krne ki jarurat nhi
+    }
+
+
+    res.status(200).json(response)
+})
+
+app.get("/current-time",(req,res)=>{
+
+     const date = new Date()
+    const currentTime = date.toTimeString()
+    const response = {
+        currentDate:currentTime                                   //if property and value is same then 'currentDate' could pass dono defined krne ki jarurat nhi
+    }
+
+    res.status(200).json(response)
+})
+
+app.get("/current-datetime",(req,res)=>{
+
+     const date = new Date()
+    // const currentTime = date.toTimeString()
+    const response = {
+        currentDate:date                                   //if property and value is same then 'currentDate' could pass dono defined krne ki jarurat nhi
+    }
+
+    res.status(200).json(response)
 })
 
 /**
